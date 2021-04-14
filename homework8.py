@@ -1,3 +1,4 @@
+
 import csv
 
 def csv_writer(data, path):
@@ -18,8 +19,11 @@ path = "data.csv"
 
 csv_writer(data, path)
 
-def csv_reader(path, file_obj):
-	reader = csv.Reader(path,file_obj)
+def csv_reader(file_obj):
+	reader = csv.DictReader(file_obj)
+
+	for line in reader:
+		print(line)
 
 with open("data.csv", "r") as file_obj:
 	csv_reader(file_obj)
